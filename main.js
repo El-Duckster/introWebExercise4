@@ -10,6 +10,7 @@ const errorMessage = document.querySelector('#error-message');
 const totalTasks = document.querySelector('#total-tasks');
 const notCompletedTasks = document.querySelector('#not-completed-tasks');
 const completedCounter = document.querySelector('#completed-counter');
+const todoForm = document.querySelector('#todo-form');
 
 // Save tasks to localStorage
 const saveTodosToLocalStorage = () => {
@@ -25,6 +26,7 @@ const addTask = () => {
     errorMessage.style.visibility = 'visible';
     return;
   } else {
+    errorMessage.textContent = '';
     errorMessage.style.visibility = 'hidden';
   }
 
@@ -50,7 +52,7 @@ const addTask = () => {
 
 
 
-// Render the todo list
+
 // Render the todo list
 const renderTodos = () => {
   // Clear the todoList first
@@ -65,7 +67,8 @@ const renderTodos = () => {
     todos.forEach(({ id, text, completed }) => {
       // Create <li> element
       const listItem = document.createElement('li');
-      listItem.setAttribute('data-id', id);
+      listItem.dataset.id = id;
+
       if (completed) {
         listItem.classList.add('completed');
       }
@@ -128,7 +131,6 @@ const updateTaskCounters = () => {
 };
 
 // Event Listener for Add Button
-const todoForm = document.querySelector('#todo-form');
 todoForm.addEventListener('submit', (e) => {
   e.preventDefault(); // Prevent form from refreshing the page
   addTask(); 
