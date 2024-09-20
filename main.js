@@ -1,4 +1,4 @@
-import './style.css'
+import './style.scss'
 
 // Task array
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
