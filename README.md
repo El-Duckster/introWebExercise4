@@ -28,5 +28,9 @@ Ensure you have the following installed:
 - **Node.js** (version 14 or higher)
 - **Vite** (installed through npm)
 
+# To start the project:
+npm run dev
+![Todo List Preview](./images/image.png)
+
 # Author:
 [Elena Lehto Fredenbrink]
