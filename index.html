@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple todo list web application to manage and track tasks." />
+  <meta name="keywords" content="todo, task manager, productivity, web app" />
+  <title>Exercise 4 - Todo List</title>
+  <script type="module" src="/main.js" defer></script>
+</head>
+<body>
+  <main>
+    <div class="input-area">
+      <form id="todo-form">
+      <h1>ToDo List</h1>
+      <!-- todo form -->
+      <input type="text" id="todo-input" placeholder="Enter a task">
+      <button type="submit"  id="add-todo-btn" class="adds">Add Task</button>
+      <p id="error-message" class="error"></p>
+    </form>
+    </div>
+    <!-- Task Counter -->
+    <div class="counter-container">
+      <span id="not-completed-tasks"></span>
+      <span id="completed-counter"></span>
+      <span id="total-tasks"></span>
+    </div>
+    
+    <!-- Task List -->
+    <ul id="todo-list"></ul>
+  </main>
+</body>
+</html>
