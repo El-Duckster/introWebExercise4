@@ -51,20 +51,47 @@ const addTask = () => {
 
 
 // Render the todo list
+// Render the todo list
 const renderTodos = () => {
-  if (todos.length === 0) {
-    todoList.innerHTML = `<li class="empty-message">The list is empty, start by adding new tasks.</li>`;
-  } else {
-  todoList.innerHTML = todos.map(({ id, text, completed }) => `
-    <li data-id="${id}" class="${completed ? 'completed' : ''}">
-      <span>${text}</span>
-      <button class="delete-btn" aria-label="Delete task">❌</button>
-    </li>
-  `).join(''); 
+  // Clear the todoList first
+  todoList.innerHTML = '';
 
+  if (todos.length === 0) {
+    const emptyMessage = document.createElement('li');
+    emptyMessage.classList.add('empty-message');
+    emptyMessage.textContent = 'The list is empty, start by adding new tasks.';
+    todoList.appendChild(emptyMessage);
+  } else {
+    todos.forEach(({ id, text, completed }) => {
+      // Create <li> element
+      const listItem = document.createElement('li');
+      listItem.setAttribute('data-id', id);
+      if (completed) {
+        listItem.classList.add('completed');
+      }
+
+      // Create <span> for task text
+      const taskText = document.createElement('span');
+      taskText.textContent = text;
+
+      // Create <button> for delete action
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('delete-btn');
+      deleteButton.setAttribute('aria-label', 'Delete task');
+      deleteButton.textContent = '❌';
+
+      // Append text and button to list item
+      listItem.appendChild(taskText);
+      listItem.appendChild(deleteButton);
+
+      // Append the list item to the todoList
+      todoList.appendChild(listItem);
+    });
   }
+  
   updateTaskCounters();
 };
+
 
 // Toggle task completion
 const toggleTaskCompletion = (taskId) => {
@@ -106,7 +133,6 @@ todoForm.addEventListener('submit', (e) => {
   e.preventDefault(); // Prevent form from refreshing the page
   addTask(); 
 });
-
 
 // Event Delegation for task actions (toggle or delete)
 todoList.addEventListener('click', (e) => {
