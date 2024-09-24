@@ -1,5 +1,6 @@
 # introWebExercise4 -Todo List
 This is a ToDo application, built as a requirement to pass exercise 4 in introductopn to webbdevelopement at Lernia yrkesHögskola. its a  web application built using JavaScript, HTML, and SCSS. The application allows users to manage and track their tasks with functionality to add, complete, and delete tasks. Task data is stored in the browser's `localStorage`, so tasks persist even after refreshing the page.
+**github pages:** https://el-duckster.github.io/introWebExercise4/
 
 
 ## Features
